@@ -4,6 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { BaseService } from './base.service';
+import { TodoService } from './todo.service';
+import { ItemService } from './item.service';
+
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { ItemComponent } from './item/item.component';
@@ -20,7 +24,11 @@ import { ItemComponent } from './item/item.component';
     HttpModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    BaseService,
+    TodoService,
+    ItemService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
