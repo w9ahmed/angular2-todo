@@ -9,17 +9,19 @@ import { Todo } from './../todo';
 })
 export class TodoComponent implements OnInit {
 
-  todos: Todo[];
+  public todos: Todo[];
+
   constructor(private todoService: TodoService) {
     this.todos = [];
   }
 
   ngOnInit() {
-    this.todoService.getTodos()
-      .subscribe(
-        todos => this.todos = todos);
+    this.getTodos();
+  }
 
-    console.log(this.todos);
+  getTodos(): void {
+    this.todoService.getTodos()
+    .subscribe(todos => this.todos = todos);
   }
 
 }
