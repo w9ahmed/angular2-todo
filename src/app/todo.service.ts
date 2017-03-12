@@ -20,4 +20,9 @@ export class TodoService extends BaseService {
       .catch(this.handleError);
   }
 
+  deleteTodo(todo: Todo): Observable<any> {
+    return this.http.delete(this.todosURL + `/${todo.id}`)
+      .catch(this.handleError);
+  }
+
 }

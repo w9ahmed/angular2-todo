@@ -11,12 +11,14 @@ import { ItemService } from './item.service';
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { ItemComponent } from './item/item.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
-    ItemComponent
+    ItemComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
