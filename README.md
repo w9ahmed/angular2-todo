@@ -1,7 +1,11 @@
 # Angular2Todo
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+
+## Live Example
 https://w9ahmed.github.io/angular2-todo/
+## Backend
+The backend is implemented using Ruby on Rails:  :gem: https://github.com/w9ahmed/rubyonrails-todo
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
