@@ -1,19 +1,23 @@
-<div *ngFor="let todo of todos" class="card">
+<div *ngFor="let todo of todos" class="card card-custom">
 
   <div class="card-block">
     <h4 class="card-title">{{todo.title}}</h4>
-    <!--<a href="#" class="card-link">Edit</a>-->
     <p>
-      <small>
+      <small class="text-muted">
         Added by {{todo.created_by}} at {{todo.created_at | date}}
       </small>
     </p>
-    <a href="#" (click)="deleteTodo(todo)" class="card-link">Delete</a>
+
+    <div class="btn-group float-right" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-warning" disabled>Edit</button>
+      <button type="button" class="btn btn-danger" (click)="deleteTodo(todo)">Delete</button>
+    </div>
   </div>
   
 </div>
 
-<hr>
+<hr *ngIf="todos.length > 0">
+
 <div>
   <h3>New Todo</h3>
   <form>
@@ -27,5 +31,8 @@
     </div>
   </form>
 
-  <button class="btn btn-primary" (click)="postTodo()">Add Todo</button>
+  <div class="btn-group float-right" role="group" aria-label="Basic example">
+    <button class="btn btn-primary float-right" (click)="postTodo()">Add Todo</button>
+    <button type="button" class="btn btn-secondary" (click)="deleteNewTodo()">Clear Fields</button>
+  </div>
 </div>

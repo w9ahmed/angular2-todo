@@ -43,12 +43,16 @@ export class TodoComponent implements OnInit {
     };
 
     this.todoService.postTodo(newTodo)
-    .subscribe(data => this.getTodos());
+    .subscribe(data => this.postCallBack());
   }
 
-  private deleteNewTodo(): void {
-    delete this.newTodoTitle;
-    delete this.newTodoCreatedBy;
+  public deleteNewTodo(): void {
+    this.newTodoTitle = '';
+    this.newTodoCreatedBy = '';
   }
 
+  private postCallBack(): void {
+    this.getTodos();
+    this.deleteNewTodo();
+  }
 }
