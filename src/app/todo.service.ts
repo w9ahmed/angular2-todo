@@ -25,4 +25,9 @@ export class TodoService extends BaseService {
       .catch(this.handleError);
   }
 
+  postTodo(params: any): Observable<any> {
+    return this.http.post(this.todosURL, params)
+      .catch(this.handleError);
+  }
+
 }

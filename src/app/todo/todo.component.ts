@@ -11,6 +11,9 @@ export class TodoComponent implements OnInit {
 
   public todos: Todo[];
 
+  public newTodoTitle: string;
+  public newTodoCreatedBy: string;
+
   constructor(private todoService: TodoService) {
     this.todos = [];
   }
@@ -27,6 +30,21 @@ export class TodoComponent implements OnInit {
   deleteTodo(todo: Todo): void {
     this.todoService.deleteTodo(todo)
     .subscribe(data => this.getTodos());
+  }
+
+  postTodo(): void {
+    const newTodo: any = {
+      'title': this.newTodoTitle,
+      'created_by': this.newTodoCreatedBy
+    };
+
+    this.todoService.postTodo(newTodo)
+    .subscribe(data => this.getTodos());
+  }
+
+  private deleteNewTodo(): void {
+    delete this.newTodoTitle;
+    delete this.newTodoCreatedBy;
   }
 
 }
