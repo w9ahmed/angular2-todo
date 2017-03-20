@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
@@ -10,6 +10,8 @@ import { Todo } from './todo';
 
 @Injectable()
 export class TodoService extends BaseService {
+
+  public todosEmitter: EventEmitter<boolean> = new EventEmitter();
 
   private todosURL = this.baseURL + '/todos';
   constructor(private http: Http) { super(); }
@@ -28,6 +30,10 @@ export class TodoService extends BaseService {
   postTodo(params: any): Observable<any> {
     return this.http.post(this.todosURL, params)
       .catch(this.handleError);
+  }
+
+  requestRefresh(): void {
+    this.todosEmitter.emit(true);
   }
 
 }

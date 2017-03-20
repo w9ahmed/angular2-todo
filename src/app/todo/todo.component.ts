@@ -20,6 +20,10 @@ export class TodoComponent implements OnInit {
 
   ngOnInit() {
     this.getTodos();
+
+    this.todoService.todosEmitter.subscribe((event: boolean) => {
+      this.getTodos();
+    });
   }
 
   getTodos(): void {

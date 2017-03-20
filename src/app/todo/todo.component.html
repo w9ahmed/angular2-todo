@@ -1,23 +1,31 @@
-<button type="button" class="btn btn-primary" (click)="getTodos()">Refresh</button>
 <div *ngFor="let todo of todos" class="card">
 
   <div class="card-block">
     <h4 class="card-title">{{todo.title}}</h4>
     <!--<a href="#" class="card-link">Edit</a>-->
+    <p>
+      <small>
+        Added by {{todo.created_by}} at {{todo.created_at | date}}
+      </small>
+    </p>
     <a href="#" (click)="deleteTodo(todo)" class="card-link">Delete</a>
   </div>
   
 </div>
 
-<form>
-  <div class="form-group">
-    <label>Title</label>
-    <input type="text" class="form-control" placeholder="Task title" [(ngModel)]="newTodoTitle" name="newTodoTitle">
-  </div>
-  <div class="form-group">
-    <label>Name</label>
-    <input type="text" class="form-control" placeholder="Your name" [(ngModel)]="newTodoCreatedBy" name="newTodoCreatedBy">
-  </div>
-</form>
+<hr>
+<div>
+  <h3>New Todo</h3>
+  <form>
+    <div class="form-group">
+      <label>Title* <small>required</small></label>
+      <input type="text" class="form-control" placeholder="Task title" [(ngModel)]="newTodoTitle" name="newTodoTitle">
+    </div>
+    <div class="form-group">
+      <label>Name* <small>required</small></label>
+      <input type="text" class="form-control" placeholder="Your name" [(ngModel)]="newTodoCreatedBy" name="newTodoCreatedBy">
+    </div>
+  </form>
 
-<button class="btn btn-primary" (click)="postTodo()">Add Todo</button>
+  <button class="btn btn-primary" (click)="postTodo()">Add Todo</button>
+</div>
